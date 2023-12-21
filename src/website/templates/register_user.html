@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<div class="col-md-4 offset-md-4">
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+   	Your Have Errors In Your Fields
+   	{% for field in form %}
+   		{% if field.errors %}
+   			{{field.errors}}
+   		{% endif %}
+   	{% endfor %}
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+   
+</div>
+
+{% endif %}
+<form action="" method="POST">{% csrf_token %}
+<h1>Registration....</h1><br>
+	{{form.as_p}}
+<button type="submit" class="btn btn-secondary">Submit</button><br>
+</form>
+</div>
+
+
+{% endblock %}
